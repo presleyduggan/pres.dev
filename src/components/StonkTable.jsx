@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Table, Column, HeaderCell, Cell } from 'rsuite-table';
-import "rsuite-table/dist/css/rsuite-table.css";
+import { Table } from 'rsuite';
+import { CustomProvider } from 'rsuite';
+import 'rsuite/dist/rsuite.min.css';
 
   function StonkTable() {
 
@@ -26,26 +27,29 @@ import "rsuite-table/dist/css/rsuite-table.css";
         <h1>Hello!</h1>
         <div>{JSON.stringify(todos)}</div>
 
+        <div>
+
         <Table
         data={todos}
         autoHeight
     >
-      <Column width={200} align="center" fixed>
-        <HeaderCell>Price</HeaderCell>
-        <Cell dataKey="Cost" />
-      </Column>
+      <Table.Column flexGrow ={1} style={{ color: '#fff' }}  align="center">
+        <Table.HeaderCell >Price</Table.HeaderCell>
+        <Table.Cell  dataKey="Cost" />
+      </Table.Column>
 
-      <Column width={200} align="center" fixed>
-        <HeaderCell>Name</HeaderCell>
-        <Cell dataKey="Name" />
-      </Column>
+      <Table.Column flexGrow ={2} style={{ color: '#fff' }}  align="center" >
+        <Table.HeaderCell  >Name</Table.HeaderCell>
+        <Table.Cell dataKey="Name" />
+      </Table.Column>
 
-      <Column width={200} align="center" fixed>
-        <HeaderCell>Tag</HeaderCell>
-        <Cell dataKey="Tag" />
-      </Column>
+      <Table.Column flexGrow ={3} style={{ color: '#fff' }}  align="center" >
+        <Table.HeaderCell>Tag</Table.HeaderCell>
+        <Table.Cell dataKey="Tag" />
+      </Table.Column>
 
       </Table>
+      </div>
 
         </div>
         
