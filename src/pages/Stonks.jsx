@@ -9,8 +9,9 @@ function Stonks() {
     return ( 
         <div>
             <Stonkbar></Stonkbar>
-            <div class="centered">
-            <StonkTable/>
+            <h1>Test</h1>
+            <div className="center2">
+                <StonkTable/>
             </div>
         </div>
      );

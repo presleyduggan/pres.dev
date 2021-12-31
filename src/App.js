@@ -22,9 +22,6 @@ const divStyle2 = {
 function App() {
   return (
     <div className="App">
-          {/* <div style={divStyle2}>
-            <SideBar></SideBar>
-          </div> */}
           <Router>
           <NavBar />
           <Routes>
