@@ -13,3 +13,19 @@
     margin: 0 auto;
     align-self: center;
 }
+
+.tables{
+    color: rgb(241, 63, 32);
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+@media(max-width: 600px) {
+    .tables{
+        justify-content: flex-start;
+        align-items: normal;
+        width: 100%
+    }
+}

@@ -11,8 +11,8 @@ function Stonks() {
     return ( 
         <div>
             <Stonkbar></Stonkbar>
-            <h1>Test</h1>
-            <div className="center2">
+            <h1>2022 Stonks Competition</h1>
+            <div className='tables'>
                 <CustomProvider theme="dark">
                 <StonkTable/>
                 </CustomProvider>
