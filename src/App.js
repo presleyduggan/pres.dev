@@ -1,9 +1,10 @@
 import './App.css';
 import './components/Navbar.jsx'
 import NavBar from './components/Navbar.jsx';
-import SideBar from './components/Sidebar';
 import Footer from './components/Footer';
 import Stonks from './pages/Stonks';
+import Fame from './pages/Fame';
+import Shame from './pages/Shame';
 import Construction from './pages/Construction';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -25,6 +26,8 @@ function App() {
           <Router>
           <NavBar />
           <Routes>
+          <Route path="/Stonks/fame" element={<Fame/>} />
+          <Route path="/Stonks/shame" element={<Shame/>} />
           <Route path="/Stonks/*" element={<Stonks/>} />
           <Route path="/" element={<Construction/>} />
           <Route path="/Projects" element={<Construction/>} />

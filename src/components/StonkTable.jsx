@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import { propTypes } from 'react-bootstrap/esm/Image';
 import { Table } from 'rsuite';
 import { CustomProvider } from 'rsuite';
 import 'rsuite/dist/rsuite.min.css';
 
-  function StonkTable() {
+  function StonkTable(props) {
 
     let [todos, setTodos] = useState([])
-    let [first, setFirst] = useState(null)
     const [sortColumn, setSortColumn] = React.useState();
     const [sortType, setSortType] = React.useState();
     const [loading, setLoading] = React.useState(false);
@@ -21,10 +21,10 @@ import 'rsuite/dist/rsuite.min.css';
           'Accept': 'application/json'
          }
   
-      }).then(response => response.json()).then(data => {setTodos(data)
+      }).then(response => response.json()).then(data => {setTodos(data["stonkers"])
       let grab = data[0];
-      first = setFirst(grab.names);
-      console.log(Object.entries(data).map( ([key, value]) => `My key is ${key} and my value is ${value}` ))
+      console.log(data["king"]);
+      props.sendKing(data["king"]);
       })
     }, []);
 
