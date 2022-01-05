@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Stonkbar from '../components/Stonkbar';
-import "../styles/Stonks.css"
 import Josh2021 from '../images/fame/josh.JPG';
 import "../styles/Fame.css"
 

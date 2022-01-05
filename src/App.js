@@ -26,9 +26,9 @@ function App() {
           <Router>
           <NavBar />
           <Routes>
+          <Route path="/Stonks/" element={<Stonks/>} />
           <Route path="/Stonks/fame" element={<Fame/>} />
           <Route path="/Stonks/shame" element={<Shame/>} />
-          <Route path="/Stonks/*" element={<Stonks/>} />
           <Route path="/" element={<Construction/>} />
           <Route path="/Projects" element={<Construction/>} />
           </Routes>

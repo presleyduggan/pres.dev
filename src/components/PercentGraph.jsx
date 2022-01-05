@@ -65,11 +65,15 @@ function PercentGraph(props) {
         {
             if(data[i] > 0)
             {
-                arr.push("#00b33c")
-            }
+/*                 arr.push("#00b33c")
+ */        
+                arr.push("forestgreen")
+
+}
             else
             {
-                arr.push("#e60000")
+                /*arr.push("#e60000")*/
+                arr.push("firebrick")
             }
         }
         return arr;

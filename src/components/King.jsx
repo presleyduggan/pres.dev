@@ -5,9 +5,9 @@ import jack from "../images/stonkers/jack.jpeg";
 import jawsh from "../images/stonkers/josh.jpeg";
 import mark from "../images/stonkers/mark.JPG"
 import mitch from "../images/stonkers/mitch.JPG"
-import poles from "../images/stonkers/mitch.JPG"
-import presley from "../images/stonkers/mitch.JPG"
-import rex from "../images/stonkers/mitch.JPG"
+import poles from "../images/stonkers/poles.jpeg"
+import presley from "../images/stonkers/presley.JPG"
+import rex from "../images/stonkers/rex.jpeg"
 import sean from "../images/stonkers/sean.jpg"
 
 function King(props) {
@@ -56,10 +56,10 @@ function King(props) {
     return ( 
         <div>
             <h1 style={{color: "black"}}>Your current Stonks KING: {props.theKing} </h1>
-            <span>
+            <div>
 
                 {kingPic(props.theKing)}
-            </span>
+            </div>
 
         </div>
         

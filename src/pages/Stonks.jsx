@@ -1,10 +1,10 @@
-import React, { Component, useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Stonkbar from '../components/Stonkbar';
 import StonkTable from '../components/StonkTable';
 import King from "../components/King"
 import PercentGraph from '../components/PercentGraph';
 import PercentLine from '../components/PercentLine';
-import "../styles/Stonks.css"
+import styles from "../styles/Stonks.module.css"
 import { CustomProvider } from 'rsuite';
 
 
@@ -38,7 +38,7 @@ function Stonks() {
             <br></br>
             <br></br>
             <br></br>
-            <div className='tables'>
+            <div className={styles.tables}>
                 <CustomProvider theme="dark">
                 <StonkTable sendKing={settheKing} sendSpy={setspyPercent} sendNames ={setnames} sendPercent={setpercent}/>
                 </CustomProvider>
@@ -53,13 +53,12 @@ function Stonks() {
                 <br></br>
                 <br></br>
                 <br></br>
-
-
                 <King theKing={theKing}/>
                 <br></br>
                 <br></br>
                 <br></br>
-            </div>
+                </div>
+
         </div>
      );
 }
