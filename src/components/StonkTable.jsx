@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { propTypes } from 'react-bootstrap/esm/Image';
 import { Table } from 'rsuite';
-import { CustomProvider } from 'rsuite';
 import 'rsuite/dist/rsuite.min.css';
 
   function StonkTable(props) {
@@ -22,9 +20,12 @@ import 'rsuite/dist/rsuite.min.css';
          }
   
       }).then(response => response.json()).then(data => {setTodos(data["stonkers"])
-      let grab = data[0];
-      console.log(data["king"]);
+      let grab = data["stonkers"];
       props.sendKing(data["king"]);
+      props.sendSpy(data["spy"]);
+      props.sendNames(data["names"]);
+      props.sendPercent(data["percent_change"]);
+
       })
     }, []);
 
@@ -49,6 +50,7 @@ import 'rsuite/dist/rsuite.min.css';
         sortColumn={sortColumn}
         sortType={sortType}
         onSortColumn={handleSortColumn}
+        align="left"
     >
       <Table.Column minWidth={85} flexGrow ={1} style={{ color: '#fff' }}  align="left" sortable>
         <Table.HeaderCell >Stonker</Table.HeaderCell>
@@ -57,22 +59,22 @@ import 'rsuite/dist/rsuite.min.css';
 
       <Table.Column minWidth={85} flexGrow ={2} style={{ color: '#fff' }}  align="left" sortable>
         <Table.HeaderCell>Ticker</Table.HeaderCell>
-        <Table.Cell dataKey="ticker" />
+        <Table.Cell>{rowData => <span>${rowData.ticker}</span>}</Table.Cell> 
       </Table.Column>
 
-      <Table.Column flexGrow ={3} style={{ color: '#fff' }}  align="left" sortable>
-        <Table.HeaderCell>Initial Price</Table.HeaderCell>
-        <Table.Cell dataKey="initial" />
+      <Table.Column minWidth={85} flexGrow ={3} style={{ color: '#fff' }}  align="left" sortable>
+        <Table.HeaderCell>Initial</Table.HeaderCell>
+        <Table.Cell>{rowData => <span>${rowData.initial}</span>}</Table.Cell> 
       </Table.Column>
 
-      <Table.Column flexGrow ={4} style={{ color: '#fff' }}  align="left" sortable>
-        <Table.HeaderCell>Current Price</Table.HeaderCell>
-        <Table.Cell dataKey="current" />
+      <Table.Column minWidth={85} flexGrow ={4} style={{ color: '#fff' }}  align="left" sortable>
+        <Table.HeaderCell align="lef">Current</Table.HeaderCell>
+        <Table.Cell align="left">{rowData => <span style={{marginLeft: "auto"}}>${rowData.current}</span>}</Table.Cell> 
       </Table.Column>
 
-      <Table.Column flexGrow ={4} style={{ color: '#fff' }}  align="left" sortable>
-        <Table.HeaderCell>Percent Change</Table.HeaderCell>
-        <Table.Cell dataKey="percent" />
+      <Table.Column flexGrow ={4} align="left" sortable>
+        <Table.HeaderCell style={{ color: '#fff' }} >Percent Change</Table.HeaderCell>
+        <Table.Cell>{rowData => <span style={{color: rowData.percent >= 0 ? "green" : "red" }}>{rowData.percent}%</span>}</Table.Cell> 
       </Table.Column>
 
       </Table>

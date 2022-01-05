@@ -22,14 +22,18 @@
     margin: 0 auto;
 }
 
+
 @media(max-width: 600px) {
     .tables{
         justify-content: flex-start;
         align-items: normal;
         width: 100%
     }
-    .columns
-    {
+
+
+    img{
+        width: 300px;
+        height: 300px;
 
     }
 }

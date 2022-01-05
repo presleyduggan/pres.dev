@@ -1,14 +1,14 @@
 import React, { useEffect, useState, State } from 'react';
 
 import david from "../images/stonkers/david.jpeg";
-import jack from "../images/stonkers/jack.heic";
-import jawsh from "../images/stonkers/jack.heic";
+import jack from "../images/stonkers/jack.jpeg";
+import jawsh from "../images/stonkers/josh.jpeg";
 import mark from "../images/stonkers/mark.JPG"
 import mitch from "../images/stonkers/mitch.JPG"
 import poles from "../images/stonkers/mitch.JPG"
 import presley from "../images/stonkers/mitch.JPG"
 import rex from "../images/stonkers/mitch.JPG"
-import sean from "../images/stonkers/mitch.JPG"
+import sean from "../images/stonkers/sean.jpg"
 
 function King(props) {
 

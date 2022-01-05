@@ -22,14 +22,33 @@
     margin: 0 auto;
 }
 
+p{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        width: 32%
+}
+
+
 @media(max-width: 600px) {
     .tables{
         justify-content: flex-start;
         align-items: normal;
         width: 100%
     }
-    .columns
-    {
+
+    p{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        width: 90%
+    }
+
+    img{
+        width: 350px;
+        height: 300px;
 
     }
 }
