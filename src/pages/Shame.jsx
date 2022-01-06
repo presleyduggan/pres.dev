@@ -9,6 +9,9 @@ function Stonks() {
     return ( 
         <div>
             <Stonkbar></Stonkbar>
+            <br/>
+            <br/>
+            <br/>
             <h1>Stonks Hall of Shame</h1>
             <br></br>
             <br></br>

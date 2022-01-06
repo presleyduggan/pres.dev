@@ -1,4 +1,4 @@
-import React, { useEffect, useState, State } from 'react';
+import React from 'react';
 
 import david from "../images/stonkers/david.jpeg";
 import jack from "../images/stonkers/jack.jpeg";
@@ -11,12 +11,6 @@ import rex from "../images/stonkers/rex.jpeg"
 import sean from "../images/stonkers/sean.jpg"
 
 function King(props) {
-
-    let [todos, setTodos] = useState([])
-    let [showSecret, setShowSecret] = useState("Loading...")
-    let [color, setColor] = useState("red")
-
-
     /* useEffect(() => {
         fetch("/api/stonks", {
           headers : { 
@@ -31,25 +25,25 @@ function King(props) {
     function kingPic(king){
         switch(king){
             case "David":
-                return <img src={david} height="400" width="300"></img>
+                return <img src={david} alt="david" height="400" width="300"></img>
             case "Jack":
-                return <img src={jack} height="400" width="300"></img>
+                return <img src={jack} alt="Jack" height="400" width="300"></img>
             case "Jawsh":
-                return <img src={jawsh} height="400" width="300"></img>
+                return <img src={jawsh} alt="Josh" height="400" width="300"></img>
             case "Mark":
-                return <img src={mark} height="400" width="300"></img>
+                return <img src={mark} alt="Mark" height="400" width="300"></img>
             case "Mitch":
-                return <img src={mitch} height="400" width="300"></img>
+                return <img src={mitch} alt="Mitch" height="400" width="300"></img>
             case "Poles":
-                return <img src={poles} height="400" width="300"></img>
+                return <img src={poles} alt="Poles" height="400" width="300"></img>
             case "Presley":
-                return <img src={presley} height="400" width="300"></img>
+                return <img src={presley} alt="Presley" height="400" width="300"></img>
             case "Rex":
-                return <img src={rex} height="400" width="300"></img>
+                return <img src={rex} alt="rex" height="400" width="300"></img>
             case "Sean":
-                return <img src={sean} height="400" width="300"></img>
+                return <img src={sean} alt="Sean" height="400" width="300"></img>
             default:
-                return <h1></h1>
+                return
         }
     }
 

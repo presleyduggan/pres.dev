@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Stonkbar from '../components/Stonkbar';
 import Josh2021 from '../images/fame/josh.JPG';
 import "../styles/Fame.css"
@@ -10,6 +10,9 @@ function Stonks() {
     return ( 
         <div>
             <Stonkbar></Stonkbar>
+            <br/>
+            <br/>
+            <br/>
             <h1>Stonks Hall of Fame</h1>
             <br></br>
             <br></br>
