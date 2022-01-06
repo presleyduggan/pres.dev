@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Stonkbar from '../components/Stonkbar';
 import "../styles/Shame.css"
 import Rex2021 from '../images/shame/rex3.jpg';
@@ -6,6 +6,12 @@ import Rex2021 from '../images/shame/rex3.jpg';
 
 
 function Stonks() {
+
+    useEffect(() => {
+        document.title = "Stonks Hall of Shame"
+     }, []);
+
+
     return ( 
         <div>
             <Stonkbar></Stonkbar>

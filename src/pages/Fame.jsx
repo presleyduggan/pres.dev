@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Stonkbar from '../components/Stonkbar';
 import Josh2021 from '../images/fame/josh.JPG';
 import "../styles/Fame.css"
@@ -7,6 +7,12 @@ import "../styles/Fame.css"
 
 
 function Stonks() {
+
+    useEffect(() => {
+        document.title = "Stonks Hall of Fame"
+     }, []);
+
+
     return ( 
         <div>
             <Stonkbar></Stonkbar>

@@ -1,8 +1,13 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Stonkbar from '../components/Stonkbar';
 
 
 function Info(props) {
+
+    useEffect(() => {
+        document.title = "Stonks Info"
+     }, []);
+
     return ( 
         <div>
         <Stonkbar/>

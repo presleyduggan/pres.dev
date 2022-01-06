@@ -77,6 +77,10 @@ function Stonks() {
         return () => window.removeEventListener('resize', handleResize);
       }, []);
 
+      useEffect(() => {
+        document.title = "Stonks 2022"
+     }, []);
+
     require("../styles/Stonks.css");
 
     return ( 
