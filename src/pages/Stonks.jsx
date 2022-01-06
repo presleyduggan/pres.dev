@@ -5,7 +5,7 @@ import StonkTableMobile from '../components/StonkTableMobile';
 import King from "../components/King"
 import PercentGraph from '../components/PercentGraph';
 //import PercentLine from '../components/PercentLine';
-//import styles from "../styles/Stonks.module.css"
+//mport styles from "../styles/Stonks.css"
 import { CustomProvider } from 'rsuite';
 
 

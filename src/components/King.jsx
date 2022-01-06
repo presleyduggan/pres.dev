@@ -43,7 +43,7 @@ function King(props) {
             case "Sean":
                 return <img src={sean} alt="Sean" height="400" width="300"></img>
             default:
-                return
+                return 
         }
     }
 
