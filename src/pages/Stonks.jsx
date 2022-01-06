@@ -23,7 +23,7 @@ function Stonks() {
     {
         if(isMobile)
         {
-            console.log(isMobile);
+            //console.log(isMobile);
             return <StonkTableMobile sendKing={settheKing} sendSpy={setspyPercent} sendNames ={setnames} sendPercent={setpercent}/>
         }
         else
@@ -34,7 +34,7 @@ function Stonks() {
 
     function getWindowDimensions() {
         const { innerWidth: width, innerHeight: height } = window;
-        console.log("width = "+width+" and height="+height);
+        //console.log("width = "+width+" and height="+height);
   
         return width;
         
@@ -42,7 +42,7 @@ function Stonks() {
   
       function isMobile(){
         let width = getWindowDimensions();
-        console.log("Width = "+width);
+        //console.log("Width = "+width);
         if(width < 420)
         {
           return(true);

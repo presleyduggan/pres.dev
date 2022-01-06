@@ -10,7 +10,6 @@ import 'rsuite/dist/rsuite.min.css';
     const [loading, setLoading] = React.useState(false);
     const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
     const [maxColumn, setmaxColum] = useState(85);
-    const [mobileWidth, setmobileWidth] = useState(isMobile());
     const locale = {
       emptyMessage: 'Pulling data from API.',
       loading: 'Loading, please wait.'
@@ -19,7 +18,7 @@ import 'rsuite/dist/rsuite.min.css';
 
     function getWindowDimensions() {
       const { innerWidth: width, innerHeight: height } = window;
-      console.log("width = "+width+" and height="+height);
+      //console.log("width = "+width+" and height="+height);
 
       return {
         width
@@ -41,7 +40,7 @@ import 'rsuite/dist/rsuite.min.css';
 
 
     useEffect(() => {
-      fetch("/api/stonks", {
+      fetch("https://presleyduggan.pythonanywhere.com/api/stonks", {
         headers : { 
           'Content-Type': 'application/json',
           'Accept': 'application/json'

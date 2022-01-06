@@ -14,7 +14,7 @@ import 'rsuite/dist/rsuite.min.css';
     };
 
     useEffect(() => {
-      fetch("/api/stonks", {
+      fetch("https://presleyduggan.pythonanywhere.com/api/stonks", {
         headers : { 
           'Content-Type': 'application/json',
           'Accept': 'application/json'
