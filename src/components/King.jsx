@@ -50,11 +50,11 @@ function King(props) {
   function notSean(king) {
     switch (king) {
       case "Sean":
-        return <h3>Long live Sean!</h3>;
+        return <h3>Long live King Sean, first of his name!</h3>;
       case "Loading...":
         return;
       default:
-        return <h3>Death to Sean!</h3>;
+        return <h3>Down with the False King Sean!</h3>;
     }
   }
 
