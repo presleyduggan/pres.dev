@@ -51,6 +51,8 @@ function King(props) {
     switch (king) {
       case "Sean":
         return <h3>Long live Sean!</h3>;
+      case "Loading...":
+        return;
       default:
         return <h3>Death to Sean!</h3>;
     }
@@ -62,6 +64,8 @@ function King(props) {
         Your current Stonks KING: {props.theKing}{" "}
       </h1>
       <div>{kingPic(props.theKing)}</div>
+      <br></br>
+      <br></br>
       <div>{notSean(props.theKing)}</div>
     </div>
   );
