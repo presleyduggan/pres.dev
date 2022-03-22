@@ -1,7 +1,7 @@
-# Getting Started with Create React App
+# Pres.dev website
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 Stonks 2.0 Website + future of pres.dev
 
--- Currently uses Test data while all of the picks aren't in -- 
+Currently a work in progress. The stock challenge aspect of the website is live and working.
