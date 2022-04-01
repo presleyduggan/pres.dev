@@ -54,7 +54,7 @@ function King(props) {
       case "Loading...":
         return;
       default:
-        return <h3>Down with the False King Sean!</h3>;
+        return <h3>April Fools Dummy!</h3>;
     }
   }
 
