@@ -25,7 +25,13 @@ function Stonks() {
       <h3>Start Price: $9.00</h3>
       <h3>End Price: $20.77</h3>
       <h3 style={{ color: "green" }}>130.78%</h3>
-      <img src={Josh2021} alt="Josh 2021" height={400} width={500} />
+      <img
+        src={Josh2021}
+        className="fameimg"
+        alt="Josh 2021"
+        height={400}
+        width={500}
+      />
       <br></br>
       <br></br>
       <p>

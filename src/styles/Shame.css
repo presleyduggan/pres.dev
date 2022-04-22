@@ -1,33 +1,30 @@
-.centered{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: (-50%, -50%);
+.centered {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: (-50%, -50%);
 }
 
-.center2{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0 auto;
-    align-self: center;
+.center2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0 auto;
+  align-self: center;
 }
 
+@media (max-width: 600px) {
+  .tables {
+    justify-content: flex-start;
+    align-items: normal;
+    width: 100%;
+  }
 
-@media(max-width: 600px) {
-    .tables{
-        justify-content: flex-start;
-        align-items: normal;
-        width: 100%
-    }
-
-
-    img{
-        height: 400px;
-        width: 300px;
-        max-height: 100vh;
-        max-width: 100vw;
-
-    }
+  .shameimg {
+    height: 300px;
+    width: 300px;
+    max-height: 100vh;
+    max-width: 100vw;
+  }
 }

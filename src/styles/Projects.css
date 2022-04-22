@@ -1,0 +1,21 @@
+.temp2 {
+  width: 100%;
+  height: 1000px;
+  background-color: beige;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.photocir2 {
+  border-radius: 50%;
+  background: red;
+  display: block;
+}
+
+.linkbadge2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

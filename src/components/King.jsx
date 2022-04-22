@@ -25,23 +25,95 @@ function King(props) {
   function kingPic(king) {
     switch (king) {
       case "David":
-        return <img src={david} alt="david" height="400" width="300"></img>;
+        return (
+          <img
+            src={david}
+            className="king"
+            alt="david"
+            height="400"
+            width="300"
+          ></img>
+        );
       case "Jack":
-        return <img src={jack} alt="Jack" height="400" width="300"></img>;
+        return (
+          <img
+            src={jack}
+            className="king"
+            alt="Jack"
+            height="400"
+            width="300"
+          ></img>
+        );
       case "Jawsh":
-        return <img src={jawsh} alt="Josh" height="400" width="300"></img>;
+        return (
+          <img
+            src={jawsh}
+            className="king"
+            alt="Josh"
+            height="400"
+            width="300"
+          ></img>
+        );
       case "Mark":
-        return <img src={mark} alt="Mark" height="400" width="300"></img>;
+        return (
+          <img
+            src={mark}
+            className="king"
+            alt="Mark"
+            height="400"
+            width="300"
+          ></img>
+        );
       case "Mitch":
-        return <img src={mitch} alt="Mitch" height="400" width="300"></img>;
+        return (
+          <img
+            src={mitch}
+            className="king"
+            alt="Mitch"
+            height="400"
+            width="300"
+          ></img>
+        );
       case "Poles":
-        return <img src={poles} alt="Poles" height="400" width="300"></img>;
+        return (
+          <img
+            src={poles}
+            className="king"
+            alt="Poles"
+            height="400"
+            width="300"
+          ></img>
+        );
       case "Presley":
-        return <img src={presley} alt="Presley" height="400" width="300"></img>;
+        return (
+          <img
+            src={presley}
+            className="king"
+            alt="Presley"
+            height="400"
+            width="300"
+          ></img>
+        );
       case "Rex":
-        return <img src={rex} alt="rex" height="400" width="300"></img>;
+        return (
+          <img
+            src={rex}
+            className="king"
+            alt="rex"
+            height="400"
+            width="300"
+          ></img>
+        );
       case "Sean":
-        return <img src={sean} alt="Sean" height="400" width="300"></img>;
+        return (
+          <img
+            src={sean}
+            className="king"
+            alt="Sean"
+            height="400"
+            width="300"
+          ></img>
+        );
       default:
         return;
     }

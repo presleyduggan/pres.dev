@@ -29,7 +29,13 @@ function Stonks() {
         $SPY was up <span style={{ color: "green" }}>&nbsp;28.79%&nbsp;</span>{" "}
         that year
       </p>
-      <img src={Rex2021} alt="Rex 2021" height={350} width={350} />
+      <img
+        src={Rex2021}
+        className="shameimg"
+        alt="Rex 2021"
+        height={350}
+        width={350}
+      />
       <br></br>
       <br></br>
       <p>“Wait, I thought you said stonks only go up”</p>

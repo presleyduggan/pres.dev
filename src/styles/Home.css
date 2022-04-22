@@ -7,3 +7,15 @@
   align-items: center;
   flex-direction: column;
 }
+
+.photocir {
+  border-radius: 50%;
+  background: red;
+  display: block;
+}
+
+.linkbadge {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
