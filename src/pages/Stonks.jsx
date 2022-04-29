@@ -5,7 +5,7 @@ import StonkTableMobile from "../components/StonkTableMobile";
 import King from "../components/King";
 import PercentGraph from "../components/PercentGraph";
 //import PercentLine from '../components/PercentLine';
-//mport styles from "../styles/Stonks.css"
+import styles from "../styles/Stonks.css";
 import { CustomProvider } from "rsuite";
 
 function Stonks() {
@@ -95,10 +95,8 @@ function Stonks() {
     document.title = "Stonks 2022";
   }, []);
 
-  require("../styles/Stonks.css");
-
   return (
-    <div>
+    <div className="testcolor">
       <Stonkbar></Stonkbar>
       <br />
       <br />

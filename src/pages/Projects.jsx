@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import "../styles/Projects.css";
-import pres from "../images/home/GitHub.svg";
+import ghub from "../images/home/GitHub.svg";
+import stonk from "../images/home/stonk.png";
 
 function Construction() {
   useEffect(() => {
@@ -18,8 +19,8 @@ function Construction() {
       <Container>
         <Row>
           <Col className="linkbadge2">
-            <a href="https://www.github.com/presleyduggan">
-              <img src={pres} alt="me!" height="300" />
+            <a href="/Stonks">
+              <img src={stonk} alt="me!" height="330" />
             </a>
           </Col>
           <Col className="linkbadge2">
@@ -66,9 +67,16 @@ function Construction() {
         <br />
         <Row>
           <Col className="linkbadge2">
-            <a href="https://www.github.com/presleyduggan">
-              <img src={pres} alt="me!" height="300" />
-            </a>
+            <iframe
+              frameborder="0"
+              src="https://itch.io/embed/1507180"
+              width="552"
+              height="167"
+            >
+              <a href="https://presleyduggan.itch.io/flappy-hound">
+                Flappy Hound by presleyduggan
+              </a>
+            </iframe>
           </Col>
           <Col className="linkbadge2">
             <div>
@@ -87,7 +95,7 @@ function Construction() {
         <Row>
           <Col className="linkbadge2">
             <a href="https://www.github.com/presleyduggan">
-              <img src={pres} alt="me!" height="300" />
+              <img src={ghub} alt="me!" height="300" />
             </a>
           </Col>
           <Col className="linkbadge2">
