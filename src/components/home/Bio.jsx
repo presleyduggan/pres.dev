@@ -17,8 +17,7 @@ function Bio() {
             <h3>
               I am a Software Developer at Vanguard Integrity Professionals, and
               am currently finishing my master's degree in Computer Science. I
-              am most interested in cryptography, authentication, and parallel
-              computing.
+              am most interested in authentication, and parallel computing.
             </h3>
             <br />
             <br />
