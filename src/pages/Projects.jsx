@@ -12,8 +12,9 @@ function Construction() {
   return (
     <div className="temp2">
       <br />
-      <h1>My Projects</h1>
       <br />
+      <h1>My Projects</h1>
+      <p>Click on a project to visit it.</p>
       <br />
       <br />
       <Container>
@@ -95,7 +96,7 @@ function Construction() {
         <Row>
           <Col className="linkbadge2">
             <a href="https://www.github.com/presleyduggan">
-              <img src={ghub} alt="me!" height="300" />
+              <img src={ghub} alt="me!" height="296" />
             </a>
           </Col>
           <Col className="linkbadge2">
