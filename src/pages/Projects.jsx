@@ -56,8 +56,9 @@ function Construction() {
             <div>
               <h1>King's Cup Game</h1>
               <p>
-                A game I made in Unity that is the King's Cup drinking game, but
-                virtual!
+                A game I made in Unity during the COVID-19 Pandemic. This is the
+                King's Cup drinking game, but virtual! Social distancing
+                approved!
               </p>
             </div>
           </Col>
