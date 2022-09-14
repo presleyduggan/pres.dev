@@ -15,9 +15,9 @@ function Bio() {
             <h3>Hello! I am Presley!</h3>
             <br />
             <h3>
-              I am a Software Developer at Vanguard Integrity Professionals, and
-              am currently finishing my master's degree in Computer Science. I
-              am most interested in authentication, and parallel computing.
+              I am a Full Stack Developer at FedEx, and am currently finishing
+              my master's degree in Computer Science. I am most interested in
+              authentication, and parallel computing.
             </h3>
             <br />
             <br />

@@ -12,9 +12,9 @@ function Bio() {
       <img src={pres} className="photocir" alt="me!" height="300" />
       <br />
       <h3>
-        I am a Software Developer at Vanguard Integrity Professionals, and am
-        currently finishing my master's degree in Computer Science. I am most
-        interested in authentication, and parallel computing.
+        I am a Full Stack Developer at Fedex, and am currently finishing my
+        master's degree in Computer Science. I am most interested in
+        authentication, and parallel computing.
       </h3>
       <br />
       <br />

@@ -18,4 +18,4 @@ function Project(prog_img, prog_text) {
   );
 }
 
-export default Footer;
+export default Project;

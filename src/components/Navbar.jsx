@@ -10,6 +10,7 @@ function NavBar() {
           <Nav.Link href="/">Home</Nav.Link>
           <Nav.Link href="/Stonks">Stonks</Nav.Link>
           <Nav.Link href="/Projects">Projects</Nav.Link>
+          <Nav.Link href="/Playground">Playground</Nav.Link>
         </Nav>
       </Container>
     </Navbar>

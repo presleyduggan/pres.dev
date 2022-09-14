@@ -59,7 +59,17 @@ function Home() {
     }
   }
 
-  return <div style={{ backgroundColor: "beige" }}>{getBio(mobileWidth)}</div>;
+  return (
+    <div style={{ backgroundColor: "beige" }}>
+      {getBio(mobileWidth)}
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+    </div>
+  );
 }
 
 export default Home;

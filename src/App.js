@@ -8,6 +8,8 @@ import Shame from "./pages/Shame";
 import Info from "./pages/Info";
 import Home from "./pages/Home";
 import Projects from "./pages/Projects";
+import Playground from "./pages/Playground";
+import Password from "./pages/Password";
 import Construction from "./pages/Construction";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
@@ -34,6 +36,8 @@ function App() {
           <Route path="/Stonks/info" element={<Info />} />
           <Route path="/" element={<Home />} />
           <Route path="/Projects" element={<Projects />} />
+          <Route path="/Playground" element={<Playground />} />
+          <Route path="/Password" element={<Password />} />
         </Routes>
         <Footer />
       </Router>
