@@ -8,6 +8,7 @@ import Shame from "./pages/Shame";
 import Info from "./pages/Info";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
+import Dashboard from "./pages/Dashboard";
 import Projects from "./pages/Projects";
 import Playground from "./pages/Playground";
 import Password from "./pages/Password";
@@ -40,6 +41,7 @@ function App() {
           <Route path="/Playground" element={<Playground />} />
           <Route path="/Password" element={<Password />} />
           <Route path="/Stonks/Login" element={<Login />} />
+          <Route path="/Dashboard" element={<Dashboard />} />
         </Routes>
         <Footer />
       </Router>
