@@ -7,6 +7,46 @@ function ChangePassword(props) {
   let [password, setPassword] = useState("");
   let [wrong, setWrong] = useState(false);
 
+  function changePWD() {
+    var send = {
+      user: JSON.parse(sessionStorage.getItem("user")),
+      password: password,
+      sessionkey: JSON.parse(sessionStorage.getItem("session_key")),
+      api_key: process.env.REACT_APP_API_KEY,
+    };
+
+    if (
+      password === "" ||
+      confirmPassword === "" ||
+      confirmPassword !== password
+    ) {
+      props.setError(
+        "Error: Please make sure password is not empty, and that both match."
+      );
+      return;
+    }
+    console.log(password);
+    console.log(confirmPassword);
+    //var send[password] = password;
+    fetch("http://192.168.0.9:5000/api/change-password", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(send),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data["error"] !== "") {
+          //
+          props.setValid([data["message"]]);
+        } else {
+          props.setError(data["error"]);
+        }
+      });
+  }
+
   return (
     <div className="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
@@ -16,7 +56,7 @@ function ChangePassword(props) {
           alt="Stonks bois"
         />
         <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
-          Sign in to your account
+          Change your Password
         </h2>
       </div>
 
@@ -32,8 +72,8 @@ function ChangePassword(props) {
               </label>
               <div className="mt-1">
                 <input
-                  value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   id="password"
                   name="password"
                   type="password"
@@ -53,10 +93,10 @@ function ChangePassword(props) {
               </label>
               <div className="mt-1">
                 <input
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  id="Confirmpassword"
-                  name="Confirmpassword"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  id="confirmpassword"
+                  name="confirmpassword"
                   type="password"
                   autoComplete="current-password"
                   required
@@ -70,7 +110,7 @@ function ChangePassword(props) {
             <div>
               <button
                 type="button"
-                onClick={props.changePWD}
+                onClick={changePWD}
                 className="flex w-full justify-center rounded-md border border-transparent bg-stone-700 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
                 Change Password
@@ -83,4 +123,4 @@ function ChangePassword(props) {
   );
 }
 
-export default Login;
+export default ChangePassword;

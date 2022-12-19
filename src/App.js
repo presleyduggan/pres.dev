@@ -12,6 +12,7 @@ import Dashboard from "./pages/Dashboard";
 import Projects from "./pages/Projects";
 import Playground from "./pages/Playground";
 import Password from "./pages/Password";
+import ChangePassword from "./pages/NewPassword";
 import Construction from "./pages/Construction";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
@@ -41,6 +42,7 @@ function App() {
           <Route path="/Playground" element={<Playground />} />
           <Route path="/Password" element={<Password />} />
           <Route path="/Stonks/Login" element={<Login />} />
+          <Route path="/Stonks/change-password" element={<ChangePassword />} />
           <Route path="/Dashboard" element={<Dashboard />} />
         </Routes>
         <Footer />

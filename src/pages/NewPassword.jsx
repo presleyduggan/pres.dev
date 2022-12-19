@@ -2,49 +2,16 @@ import React, { useEffect, useState } from "react";
 import Stonkbar from "../components/Stonkbar";
 import ChangePassword from "../components/ChangePassword";
 import { Navigate, useNavigate } from "react-router-dom";
+import ErrorBar from "../components/ErrorBar";
+import ValidBar from "../components/ValidBar";
 
 function Info(props) {
   let [error, setError] = useState("");
   let [valid, setValid] = useState("");
+  let [confirmPassword, setConfirmPassword] = useState("");
+  let [password, setPassword] = useState("");
 
   const navigate = useNavigate();
-
-  function changePWD() {
-    var send = {
-      username: JSON.parse(sessionStorage.getItem("user")),
-      password: password,
-      api_key: process.env.REACT_APP_API_KEY,
-    };
-
-    if (
-      password === "" ||
-      confirmPassword === "" ||
-      confirmPassword !== password
-    ) {
-      setError(
-        "Erorr: Please make sure password is not empty, and that both match."
-      );
-      return;
-    }
-    //var send[password] = password;
-    fetch("http://192.168.0.9:5000/api/change-password", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify(send),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data["error"] !== "") {
-          //
-          setValid([data["message"]]);
-        } else {
-          setError(data["error"]);
-        }
-      });
-  }
 
   useEffect(() => {
     document.title = "Change Password";
@@ -54,7 +21,7 @@ function Info(props) {
 
   useEffect(() => {
     if (!allowed) {
-      navigate("/Stonks/Login");
+      // navigate("/Stonks/Login");
     }
   }, []);
 
@@ -97,6 +64,9 @@ function Info(props) {
         <Stonkbar />
       </div>
       <br />
+      <a href="/Dashboard" className=" text-purple-600">
+        Return to Dashboard
+      </a>
       <div>
         {error !== "" && <ErrorBar error={error}></ErrorBar>}
         {valid !== "" && <ValidBar valid={valid}></ValidBar>}
@@ -104,7 +74,7 @@ function Info(props) {
       <br />
       <br />
       <div className="sm:min-h-screen grid content-center ">
-        <ChangePassword changePWD={changePWD} />
+        <ChangePassword setValid={setValid} setError={setError} />
       </div>
     </div>
   );

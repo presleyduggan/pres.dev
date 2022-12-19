@@ -7,6 +7,7 @@ import StockPicker from "../components/StockPicker";
 import TickBox from "../components/TickBox";
 import ErrorBar from "../components/ErrorBar";
 import ValidBar from "../components/ValidBar";
+import { Navigate, useNavigate, Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 
 function Info(props) {
@@ -115,6 +116,10 @@ function Info(props) {
         <SimpleDashboard user={user} status={status} stock={stock} />
       </div>
       <br />
+      <br />
+      <a href="/Stonks/change-password" className=" text-purple-600">
+        Change password
+      </a>
       <br />
       {/*  */}
       {error !== "" && <ErrorBar error={error}></ErrorBar>}
