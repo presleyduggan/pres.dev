@@ -7,7 +7,7 @@ function Info(props) {
   }, []);
 
   return (
-    <div>
+    <div className="min-h-screen">
       <Stonkbar />
       <br />
       <br />
