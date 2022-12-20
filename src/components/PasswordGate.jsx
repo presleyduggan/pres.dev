@@ -13,7 +13,7 @@ function PasswordGate() {
 
   function checkPWD() {
     var send = { password: password };
-    console.log(send);
+    //console.log(send);
     //var send[password] = password;
     fetch("http://127.0.0.1:5000/api/playground", {
       method: "POST",

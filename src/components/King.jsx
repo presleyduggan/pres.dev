@@ -132,13 +132,14 @@ function King(props) {
 
   return (
     <div>
-      <h1 style={{ color: "black" }}>
+      <h1 className="text-4xl font-semibold text-black">
         Your current Stonks KING: {props.theKing}{" "}
       </h1>
-      <div>{kingPic(props.theKing)}</div>
+      <br />
+      <div className="flex justify-center">{kingPic(props.theKing)}</div>
       <br></br>
       <br></br>
-      <div>{notSean(props.theKing)}</div>
+      <div className="flex justify-center">{notSean(props.theKing)}</div>
     </div>
   );
 }

@@ -61,13 +61,15 @@ function Home() {
 
   return (
     <div style={{ backgroundColor: "beige" }}>
-      {getBio(mobileWidth)}
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
+      <div className="min-h-screen">
+        {getBio(mobileWidth)}
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+      </div>
     </div>
   );
 }

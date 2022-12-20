@@ -14,7 +14,7 @@ function Login(props) {
       api_key: process.env.REACT_APP_API_KEY,
     };
     //var send[password] = password;
-    fetch("http://192.168.0.9:5000/api/login", {
+    fetch("https://presleyduggan.pythonanywhere.com/api/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -27,7 +27,7 @@ function Login(props) {
         if (data["error"] !== "") {
           // it is in fact... not secure ;)
           props.setError(data["error"]);
-          console.log("login failed");
+          //console.log("login failed");
         } else {
           //setWrong(true);
           //console.log("login failed");
@@ -40,7 +40,7 @@ function Login(props) {
             JSON.stringify(data["session_key"])
           );
           //window.location.reload(false);
-          console.log("login worked");
+          //console.log("login worked");
           //return <Navigate to="/Dashboard" />;
           navigate("/Dashboard");
         }

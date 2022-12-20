@@ -9,9 +9,9 @@ function ChangePassword(props) {
 
   function changePWD() {
     var send = {
-      user: JSON.parse(sessionStorage.getItem("user")),
+      username: JSON.parse(sessionStorage.getItem("user")),
       password: password,
-      sessionkey: JSON.parse(sessionStorage.getItem("session_key")),
+      session: JSON.parse(sessionStorage.getItem("session_key")),
       api_key: process.env.REACT_APP_API_KEY,
     };
 
@@ -25,10 +25,10 @@ function ChangePassword(props) {
       );
       return;
     }
-    console.log(password);
-    console.log(confirmPassword);
+    //console.log(password);
+    //console.log(confirmPassword);
     //var send[password] = password;
-    fetch("http://192.168.0.9:5000/api/change-password", {
+    fetch("https://presleyduggan.pythonanywhere.com/api/change-password", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -40,9 +40,11 @@ function ChangePassword(props) {
       .then((data) => {
         if (data["error"] !== "") {
           //
-          props.setValid([data["message"]]);
+          props.setError([data["error"]]);
+          //console.log(data["error"]);
         } else {
-          props.setError(data["error"]);
+          props.setValid(data["message"]);
+          //console.log(data["message"]);
         }
       });
   }

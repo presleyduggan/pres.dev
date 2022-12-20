@@ -7,7 +7,7 @@ function Playground(props) {
 
   function isUserAuthenticated() {
     var check = JSON.parse(sessionStorage.getItem("mordor"));
-    console.log(check);
+    //console.log(check);
     if (check != null) {
       return check;
     }

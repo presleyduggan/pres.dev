@@ -52,7 +52,7 @@ function StonkTable(props) {
   };
 
   const handleSortColumn = (sortColumn, sortType) => {
-    console.log("hello?");
+    //console.log("hello?");
     setLoading(true);
     setTimeout(() => {
       setLoading(false);

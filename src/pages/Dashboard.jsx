@@ -9,6 +9,8 @@ import ErrorBar from "../components/ErrorBar";
 import ValidBar from "../components/ValidBar";
 import { Navigate, useNavigate, Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
+import ChoiceDashboard from "../components/ChoiceDashboard";
+//import isUserAuthenticated from "../components/Auth.js";
 
 function Info(props) {
   let [error, setError] = useState("");
@@ -18,12 +20,21 @@ function Info(props) {
   let [stock, setStock] = useState("Loading...");
   let [status, setStatus] = useState("Loading...");
   let [stockLabel, setStockLabel] = useState("");
+  let [userStats, setUserStats] = useState(Array.from({ user: "", stock: "" }));
+  const navigate = useNavigate();
+  /* let [allowed, setAllowed] = useState(
+    isUserAuthenticated(
+      process.env.REACT_APP_API_KEY,
+      JSON.parse(sessionStorage.getItem("user")),
+      JSON.parse(sessionStorage.getItem("session_key"))
+    )
+  ); */
 
   function test() {
     setError("");
     setValid("");
-    console.log("box checked = " + checked);
-    console.log(stock);
+    //console.log("box checked = " + checked);
+    //console.log(stock);
     if (!checked) {
       setError("Error: Confirmation of Stock not being dogshit is not checked");
       return;
@@ -38,7 +49,7 @@ function Info(props) {
       api_key: process.env.REACT_APP_API_KEY,
     };
     //var send[password] = password;
-    fetch("http://192.168.0.9:5000/api/pick_stock", {
+    fetch("https://presleyduggan.pythonanywhere.com/api/pick_stock", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -48,6 +59,8 @@ function Info(props) {
     })
       .then((response) => response.json())
       .then((data) => {
+        //console.log(data);
+        //console.log(data instanceof String);
         if (
           // if you don't want to refactor your backend... just write bad javascript
           data instanceof String &&
@@ -59,7 +72,6 @@ function Info(props) {
           setError(data["error"]);
           return;
         } else {
-          console.log("qqq = " + process.env.REACT_APP_API_KEY);
           setValid(data);
           setStock(stockLabel);
           setStatus("Pending");
@@ -68,15 +80,63 @@ function Info(props) {
       });
   }
 
+  function isUserAuthenticated() {
+    var check = JSON.parse(sessionStorage.getItem("logged_in"));
+
+    // verify session key
+
+    var undef;
+    if (JSON.parse(sessionStorage.getItem("session_key") === typeof undef)) {
+      //console.log("undefined");
+      return false;
+    }
+
+    if (check) {
+      var send = {
+        api_key: process.env.REACT_APP_API_KEY,
+        username: JSON.parse(sessionStorage.getItem("user")),
+        session: JSON.parse(sessionStorage.getItem("session_key")),
+      };
+      fetch("https://presleyduggan.pythonanywhere.com/api/session", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(send),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data === "allow") {
+            // it is in fact... not secure ;)
+            //console.log("session key is good");
+            //return <Navigate to="/Dashboard" />;
+            //navigate("/Dashboard");
+            return true;
+          } else {
+            navigate("/Stonks/Login");
+            //console.log("session key is bad");
+            return false;
+          }
+        });
+    }
+  }
+
   // fetch current Stock
   useEffect(() => {
     document.title = "Dashboard";
   }, []);
 
   useEffect(() => {
-    console.log("key = " + process.env.REACT_APP_API_KEY);
+    if (isUserAuthenticated()) {
+      navigate("/Stonks/Login");
+    }
+  });
+
+  useEffect(() => {
+    //console.log("key = " + process.env.REACT_APP_API_KEY);
     var send = { user: user, api_key: process.env.REACT_APP_API_KEY };
-    fetch("http://192.168.0.9:5000/api/get_stock", {
+    fetch("https://presleyduggan.pythonanywhere.com/api/get_stock", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -86,7 +146,7 @@ function Info(props) {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log("data =" + data);
+        //console.log("data =" + data);
         if (data["error"] !== "") {
           setError(data["error"]);
           return;
@@ -96,11 +156,32 @@ function Info(props) {
           setStock("Not Picked");
           return;
         }
-        console.log(data);
+        //console.log(data);
 
         setStatus(data["status"]);
         setStock(data["stock"]);
         return;
+      });
+  }, []);
+
+  useEffect(() => {
+    //console.log("key = " + process.env.REACT_APP_API_KEY);
+    var send = { api_key: process.env.REACT_APP_API_KEY };
+    fetch("https://presleyduggan.pythonanywhere.com/api/stock-selections", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(send),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        //console.log("data =" + data);
+        var data2 = JSON.stringify(data);
+        var stockList = JSON.parse(data2);
+        //console.log(stockList);
+        setUserStats(Array.from(stockList));
       });
   }, []);
 
@@ -116,6 +197,9 @@ function Info(props) {
         <SimpleDashboard user={user} status={status} stock={stock} />
       </div>
       <br />
+      <div>
+        <ChoiceDashboard stats={userStats} />
+      </div>
       <br />
       <a href="/Stonks/change-password" className=" text-purple-600">
         Change password

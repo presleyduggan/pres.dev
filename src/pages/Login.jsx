@@ -29,7 +29,7 @@ function Info(props) {
 
     var undef;
     if (JSON.parse(sessionStorage.getItem("session_key") === typeof undef)) {
-      console.log("undefined");
+      //console.log("undefined");
       return false;
     }
 
@@ -39,7 +39,7 @@ function Info(props) {
         username: JSON.parse(sessionStorage.getItem("user")),
         session: JSON.parse(sessionStorage.getItem("session_key")),
       };
-      fetch("http://192.168.0.9:5000/api/session", {
+      fetch("https://presleyduggan.pythonanywhere.com/api/session", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -51,12 +51,12 @@ function Info(props) {
         .then((data) => {
           if (data === "allow") {
             // it is in fact... not secure ;)
-            console.log("session key is good");
+            //console.log("session key is good");
             //return <Navigate to="/Dashboard" />;
             navigate("/Dashboard");
             return true;
           } else {
-            console.log("session key is bad");
+            //console.log("session key is bad");
             return false;
           }
         });

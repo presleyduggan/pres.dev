@@ -58,24 +58,24 @@ function Stonks() {
   function spyFormat(spy) {
     switch (true) {
       case spy === "Loading...":
-        return <h2 style={{ color: "black" }}></h2>;
+        return <h2 className="text-3xl font-semibold"></h2>;
       case spy >= 0:
         return (
-          <h2 style={{ color: "black" }}>
-            $SPY is currently up <span style={{ color: "green" }}>{spy}%</span>{" "}
+          <h2 className="text-3xl font-semibold text-black">
+            $SPY is currently up <span className="text-green-500">{spy}%</span>{" "}
             YTD
           </h2>
         );
       case spy <= 0:
         return (
-          <h2 style={{ color: "black" }}>
-            $SPY is currently down <span style={{ color: "red" }}>{spy}%</span>{" "}
+          <h2 className="text-3xl font-semibold text-black">
+            $SPY is currently down <span className="text-red-500">{spy}%</span>{" "}
             YTD
           </h2>
         );
       default:
         return (
-          <h2 style={{ color: "black" }}>
+          <h2 className="text-3xl font-semibold text-black">
             Yo someone tell papa P there is a bug?
           </h2>
         );
@@ -101,7 +101,7 @@ function Stonks() {
       <br />
       <br />
       <br />
-      <h1>2022 Stonks Competition</h1>
+      <h1 className="text-4xl font-semibold">2022 Stonks Competition</h1>
       <br></br>
       <br></br>
       <br></br>

@@ -19,11 +19,11 @@ function Info(props) {
 
   let [allowed, setAllowed] = useState(isUserAuthenticated());
 
-  useEffect(() => {
+  /* useEffect(() => {
     if (!allowed) {
-      // navigate("/Stonks/Login");
+      navigate("/Stonks/Login");
     }
-  }, []);
+  }, []); */
 
   function isUserAuthenticated() {
     var check = JSON.parse(sessionStorage.getItem("logged_in"));
@@ -36,7 +36,7 @@ function Info(props) {
         username: JSON.parse(sessionStorage.getItem("user")),
         session: JSON.parse(sessionStorage.getItem("session_key")),
       };
-      fetch("http://192.168.0.9:5000/api/session", {
+      fetch("https://presleyduggan.pythonanywhere.com/api/session", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -48,10 +48,11 @@ function Info(props) {
         .then((data) => {
           if (data === "allow") {
             // it is in fact... not secure ;)
-            console.log("session key is good");
+            //console.log("session key is good");
             return true;
           } else {
-            console.log("session key is bad");
+            //console.log("session key is bad");
+            navigate("/Stonks/Login");
             return false;
           }
         });
@@ -67,14 +68,18 @@ function Info(props) {
       <a href="/Dashboard" className=" text-purple-600">
         Return to Dashboard
       </a>
+      <br />
+      <br />
       <div>
         {error !== "" && <ErrorBar error={error}></ErrorBar>}
         {valid !== "" && <ValidBar valid={valid}></ValidBar>}
       </div>
-      <br />
-      <br />
       <div className="sm:min-h-screen grid content-center ">
         <ChangePassword setValid={setValid} setError={setError} />
+        <div className="flex justify-center text-xs">
+          Note: Your password cannot be viewed by me. It is hashed and
+          unrecoverable.
+        </div>
       </div>
     </div>
   );

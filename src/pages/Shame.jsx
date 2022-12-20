@@ -14,24 +14,26 @@ function Stonks() {
       <br />
       <br />
       <br />
-      <h1>Stonks Hall of Shame</h1>
+      <h1 className="text-4xl font-semibold">Stonks Hall of Shame</h1>
       <br></br>
       <br></br>
       <br></br>
 
-      <h1>2021</h1>
-      <h3>Rex W.</h3>
-      <h3>$AJAX/$CZOO</h3>
-      <h3>Start Price: $11.52</h3>
-      <h3>End Price: $6.04</h3>
-      <h3 style={{ color: "red" }}>-47.57%</h3>
+      <h1 className="text-4xl font-semibold">2021</h1>
+      <div className="text-xl font-semibold">
+        <h3>Rex W.</h3>
+        <h3>$AJAX/$CZOO</h3>
+        <h3>Start Price: $11.52</h3>
+        <h3>End Price: $6.04</h3>
+      </div>
+      <h3 className="text-red-500">-47.57%</h3>
       <p>
-        $SPY was up <span style={{ color: "green" }}>&nbsp;28.79%&nbsp;</span>{" "}
+        $SPY was up <span className="text-green-500">&nbsp;28.79%&nbsp;</span>{" "}
         that year
       </p>
       <img
         src={Rex2021}
-        className="shameimg"
+        className="flex content-center mx-auto"
         alt="Rex 2021"
         height={350}
         width={350}
