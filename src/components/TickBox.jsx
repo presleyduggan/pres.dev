@@ -23,7 +23,7 @@ export default function TickBox(props) {
           </label>
           <br />
           <label id="comments-description" className="text-gray-500 text-xs">
-            Over 1B market cap and above $10?
+            Over 1B market cap, above $10, not an ETF etc
           </label>
         </div>
       </div>
