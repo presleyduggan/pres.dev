@@ -131,7 +131,7 @@ function Info(props) {
     if (isUserAuthenticated()) {
       navigate("/Stonks/Login");
     }
-  });
+  }, []);
 
   useEffect(() => {
     //console.log("key = " + process.env.REACT_APP_API_KEY);
