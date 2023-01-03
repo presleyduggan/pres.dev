@@ -92,7 +92,7 @@ function Stonks() {
   }, []);
 
   useEffect(() => {
-    document.title = "Stonks 2022";
+    document.title = "Stonks 2023";
   }, []);
 
   return (
