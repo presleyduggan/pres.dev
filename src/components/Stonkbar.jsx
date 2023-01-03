@@ -10,7 +10,7 @@ function Stonkbar() {
           <Nav.Link href="/Stonks/Fame">Hall of Fame</Nav.Link>
           <Nav.Link href="/Stonks/Shame">Hall of Shame</Nav.Link>
           <Nav.Link href="/Stonks/Info">Info</Nav.Link>
-          <Nav.Link href="/Stonks/Login">Login</Nav.Link>
+          {/* <Nav.Link href="/Stonks/Login">Login</Nav.Link> */}
         </Nav>
       </Container>
     </Navbar>

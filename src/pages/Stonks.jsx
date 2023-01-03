@@ -101,7 +101,7 @@ function Stonks() {
       <br />
       <br />
       <br />
-      <h1 className="text-4xl font-semibold">2022 Stonks Competition</h1>
+      <h1 className="text-4xl font-semibold">2023 Stonks Competition</h1>
       <br></br>
       <br></br>
       <br></br>
