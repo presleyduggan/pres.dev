@@ -1,14 +1,16 @@
 import React from "react";
 
-import david from "../images/stonkers/david.jpeg";
-import jack from "../images/stonkers/jack.jpeg";
-import jawsh from "../images/stonkers/josh.jpeg";
-import mark from "../images/stonkers/mark.JPG";
-import mitch from "../images/stonkers/mitch.JPG";
-import poles from "../images/stonkers/poles.jpeg";
-import presley from "../images/stonkers/presley.JPG";
-import rex from "../images/stonkers/rex.jpeg";
-import sean from "../images/stonkers/sean.jpg";
+import david from "../images/stonkers/2023/david.JPEG";
+import dhiraj from "../images/stonkers/2023/dhiraj.jpg";
+import jack from "../images/stonkers/2023/jack.jpg";
+import jawsh from "../images/stonkers/2023/josh.jpg";
+import logan from "../images/stonkers/2023/logan.JPEG";
+import mark from "../images/stonkers/2023/mark.jpg";
+import mitch from "../images/stonkers/2023/mitch.jpg";
+import poles from "../images/stonkers/2023/poles.JPG";
+import presley from "../images/stonkers/2023/presley.jpg";
+import rex from "../images/stonkers/2023/rex.png";
+import sean from "../images/stonkers/2023/sean.JPEG";
 
 function King(props) {
   /* useEffect(() => {
@@ -34,6 +36,16 @@ function King(props) {
             width="300"
           ></img>
         );
+      case "Dhiraj":
+        return (
+          <img
+            src={dhiraj}
+            className="king"
+            alt="dhiraj"
+            height="400"
+            width="300"
+          ></img>
+        );
       case "Jack":
         return (
           <img
@@ -50,6 +62,16 @@ function King(props) {
             src={jawsh}
             className="king"
             alt="Josh"
+            height="400"
+            width="300"
+          ></img>
+        );
+      case "Logan":
+        return (
+          <img
+            src={logan}
+            className="king"
+            alt="Logan"
             height="400"
             width="300"
           ></img>
