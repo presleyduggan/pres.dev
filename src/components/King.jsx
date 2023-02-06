@@ -67,15 +67,7 @@ function King(props) {
           ></img>
         );
       case "Logan":
-        return (
-          <img
-            src={logan}
-            className="king"
-            alt="Logan"
-            height="400"
-            width="300"
-          ></img>
-        );
+        return <img src={logan} alt="Logan" height="400" width="300"></img>;
       case "Mark":
         return (
           <img
