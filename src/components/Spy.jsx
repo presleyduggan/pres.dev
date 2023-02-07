@@ -4,6 +4,8 @@ function Spy(props) {
   let [spyStock, setSpyStock] = React.useState("");
 
   function getSpyStock() {
+    setSpyStock("Picking random stock...");
+
     fetch("https://presleyduggan.pythonanywhere.com/api/random-spy", {
       method: "POST",
       headers: {
