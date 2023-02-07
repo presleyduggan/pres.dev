@@ -16,6 +16,19 @@ function Info(props) {
       <br />
       <br />
       <Spy className="sm:min-h-screen grid content-center " />
+      <br />
+      <br />
+      <p>
+        {" "}
+        Thank you&nbsp;
+        <a
+          href="https://www.instagram.com/realfakejackheavey/"
+          className="text-blue-500"
+        >
+          @realfakejackheavey
+        </a>
+        &nbsp;for the quick backend logic
+      </p>
     </div>
   );
 }
