@@ -22,9 +22,10 @@ export const handle = async ({ event, resolve }) => {
 		//console.log(serializeNonPOJOS(event.locals.user));
 	}
 
+	console.time('Handle')
 	const response = await resolve(event);
 
 	response.headers.set('set-cookie', event.locals.pb.authStore.exportToCookie({ secure: false })); // TODO: change to true when deploying
-
+	console.timeEnd('Handle')
 	return response;
 };

@@ -1,7 +1,8 @@
 import { STOCK_API } from '$env/static/private';
+import { fetchStock } from '$lib/utils.js';
 
 export async function load({params, locals}) {
-	let ticker = "SPY";
+	/* let ticker = "SPY";
 	console.log(JSON.stringify({ticker}));
 	const response = await fetch(STOCK_API, {
 		method: 'POST',
@@ -14,9 +15,17 @@ export async function load({params, locals}) {
 	let stonkData = await response.json();
 	let q = 3;
 	let y: number = 4;
-	console.log(stonkData);
+	console.log(stonkData); */
 	return {
-		test: 'test1234'
+		a: fetchStock("SPY"),
+		b: fetchStock("MSFT"),
+		c: fetchStock("AAPL"),
+		d: fetchStock("LULU"),
+		e: fetchStock("VOO"),
+		f: fetchStock("GOOGL"),
+		g: fetchStock("SPCE"),
+		h: fetchStock("TSLA"),
+		i: fetchStock("NVDA"),
 	};
 }
 
