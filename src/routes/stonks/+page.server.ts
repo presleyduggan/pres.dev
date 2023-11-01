@@ -26,7 +26,7 @@ export async function load({ locals }) {
 	// Calculate the percent change for each user
 	users.forEach((user, index) => {
 		const value = stockData[index];
-		console.log(value);
+		//console.log(value);
 		const initialPrice = user.initial_price;
 		const stockPrice = value.price;
 

@@ -1,6 +1,6 @@
 <script lang="ts">
 	export let data;
-	console.log(data);
+	//console.log(data);
 	import { Table } from '@skeletonlabs/skeleton';
 	import type { TableSource } from '@skeletonlabs/skeleton';
 	import { tableMapperValues } from '@skeletonlabs/skeleton';
@@ -45,7 +45,7 @@
 <div class="flex justify-center">
 	<div class="table-container">
 		<!-- Native Table Element -->
-		<table class="table table-hover">
+		<table class="table table-interactive">
 			<thead>
 				<tr>
 					<th>Name</th>
