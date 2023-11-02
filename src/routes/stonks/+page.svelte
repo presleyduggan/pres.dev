@@ -1,253 +1,60 @@
 <script lang="ts">
+	import StonksTable from '$lib/components/StonksTable.svelte';
+	import { ProgressRadial } from '@skeletonlabs/skeleton';
+	import { onMount } from 'svelte';
+	import { invalidateAll } from '$app/navigation';
 	export let data;
-	//console.log(data);
-	import { Table } from '@skeletonlabs/skeleton';
-	import type { TableSource } from '@skeletonlabs/skeleton';
-	import { tableMapperValues } from '@skeletonlabs/skeleton';
 
-	const normalArrow = '↕';
-	const upArrow = '⬆';
-	const downArrow = '⬇';
-	const TABLE_WIDTH = 5;
+	let refreshKey = 0;
+	const initialSPY = 382.43;
+	let loadingText = 'Loading...';
 
-	let tableColumns = ['Name ↕', 'Stock ↕', 'Initial ↕', 'Current ↕', '% Change ↕'];
-	let startTableColumns: string[] = [];
+	onMount(() => {
+		const interval = setInterval(() => {
+			loadingText = 'Refreshing Stonks Data...';
+			refreshKey++;
+			invalidateAll();
+		}, 5000);
 
-	// assign by value :)
-	for (let i = 0; i < tableColumns.length; i++) {
-		startTableColumns.push(tableColumns[i]);
-	}
-
-	interface StockUser {
-		id: string;
-		name: string;
-		stock: string;
-		initial_price: number;
-		price: number;
-		percent_change: number;
-	}
-
-	if (!data.users[0].stock.includes('$')) {
-		data.users.forEach((user) => {
-			user.stock = '$' + user.stock;
-		});
-	}
-
-	function sortStonkers(sortNum: number) {
-		if (previousSort === sortNum) {
-			sortMod = sortMod * -1;
-		} else {
-			sortMod = 1;
-		}
-
-		fixArrow(sortNum);
-
-		switch (sortNum) {
-			case 1:
-				data.users.sort(sortNames);
-				previousSort = 1;
-				break;
-
-			case 2:
-				data.users.sort(sortStocks);
-				previousSort = 2;
-				break;
-
-			case 3:
-				data.users.sort(sortInitial);
-				previousSort = 3;
-				break;
-
-			case 4:
-				data.users.sort(sortCurrent);
-				previousSort = 4;
-				break;
-
-			case 5:
-				data.users.sort(sortPercent);
-				previousSort = 5;
-				break;
-		}
-
-		//console.log(data.users);
-		data.users = data.users;
-	}
-
-	let sortMod = 1;
-	let previousSort = -100;
-	sortStonkers(5);
-
-	function sortNames(a: StockUser, b: StockUser): number {
-		if (a.name.toUpperCase() < b.name.toUpperCase()) {
-			return 1 * sortMod;
-		}
-		if (a.name.toUpperCase() > b.name.toUpperCase()) {
-			return -1 * sortMod;
-		} else {
-			return 0;
-		}
-	}
-
-	function sortStocks(a: StockUser, b: StockUser): number {
-		if (a.stock.toUpperCase() < b.stock.toUpperCase()) {
-			return 1 * sortMod;
-		}
-		if (a.stock.toUpperCase() > b.stock.toUpperCase()) {
-			return -1 * sortMod;
-		} else {
-			return 0;
-		}
-	}
-
-	function sortInitial(a: StockUser, b: StockUser): number {
-		if (a.initial_price < b.initial_price) {
-			return 1 * sortMod;
-		}
-		if (a.initial_price > b.initial_price) {
-			return -1 * sortMod;
-		} else {
-			return 0;
-		}
-	}
-
-	function sortCurrent(a: StockUser, b: StockUser): number {
-		if (a.price < b.price) {
-			return 1 * sortMod;
-		}
-		if (a.price > b.price) {
-			return -1 * sortMod;
-		} else {
-			return 0;
-		}
-	}
-
-	function sortPercent(a: StockUser, b: StockUser): number {
-		if (a.percent_change < b.percent_change) {
-			return 1 * sortMod;
-		}
-		if (a.percent_change > b.percent_change) {
-			return -1 * sortMod;
-		} else {
-			return 0;
-		}
-	}
-
-	function fixArrow(num: number): void {
-		//console.log(startTableColumns);
-
-		num = num - 1;
-		console.log(tableColumns[num]);
-
-		for (let i = 0; i < tableColumns.length; i++) {
-			if (num !== i) {
-				//console.log(startTableColumns[i]);
-				tableColumns[i] = startTableColumns[i];
-			}
-		}
-
-		console.log(tableColumns[num]);
-
-		if (tableColumns[num].includes(downArrow)) {
-			tableColumns[num] = tableColumns[num].replace(downArrow, upArrow);
-			return;
-		}
-		//console.log(tableColumns[num]);
-
-		tableColumns[num] = tableColumns[num].replace(upArrow, downArrow);
-		tableColumns[num] = tableColumns[num].replace(normalArrow, downArrow);
-
-		//console.log(tableColumns[num]);
-
-		return;
-	}
-
-	/* const tableSimple: TableSource = {
-		// A list of heading labels.
-		head: ['Name', 'Stock', 'Initial', 'Current', 'Percent Change'],
-		// The data visibly shown in your table body UI.
-		body: tableMapperValues(data.users, [
-			'name',
-			'stock',
-			'initial_price',
-			'price',
-			'percent_change'
-		]),
-		// Optional: The data returned when interactive is enabled and a row is clicked.
-		meta: tableMapperValues(data.users, [
-			'name',
-			'stock',
-			'initial_price',
-			'price',
-			'percent_change'
-		])
-		// Optional: A list of footer labels.
-		foot: ['Total', '', '<code class="code">5</code>'] 
-	}; */
+		return () => {
+			clearInterval(interval);
+		};
+	});
 </script>
 
-<!-- <h1>test</h1>
-<button>test</button> -->
 <br />
 <br />
-<!-- <div class="flex justify-center">
-	<Table source={tableSimple} interactive={true} regionHead=".table-sort-dsc" />
-</div> -->
-
+<title>Stonks 2023</title>
+<h1 class="flex justify-center text-3xl md:text-4xl lg:text-7xl font-bold">
+	Stonks Competition 2023
+</h1>
 <!-- Responsive Container (recommended) -->
-<div class="flex justify-center max-w-md lg:max-w-7xl">
-	<div class="table-container">
-		<!-- Native Table Element -->
-		<table class="table table-interactive">
-			<thead>
-				<tr>
-					<th
-						><button class="text-sm lg:text-lg" on:click={() => sortStonkers(1)}
-							>{tableColumns[0]}</button
-						></th
-					>
-					<th
-						><button class="text-sm lg:text-lg" on:click={() => sortStonkers(2)}
-							>{tableColumns[1]}</button
-						></th
-					>
-					<th
-						><button class="text-sm lg:text-lg" on:click={() => sortStonkers(3)}
-							>{tableColumns[2]}</button
-						></th
-					>
-					<th
-						><button class="text-sm lg:text-lg" on:click={() => sortStonkers(4)}
-							>{tableColumns[3]}</button
-						></th
-					>
-					<th
-						><button class="text-sm lg:text-lg" on:click={() => sortStonkers(5)}
-							>{tableColumns[4]}</button
-						></th
-					>
-				</tr>
-			</thead>
-			<tbody>
-				{#each data.users as row, i}
-					<tr>
-						<td>{row.name}</td>
-						<td>{row.stock}</td>
-						<td>{row.initial_price}</td>
-						<td>{row.price}</td>
-						{#if row.percent_change > 0}
-							<td class="text-green-500">{row.percent_change}</td>
-						{:else}
-							<td class="text-red-500">{row.percent_change}</td>
-						{/if}
-					</tr>
-				{/each}
-			</tbody>
-			<!-- <tfoot>
-			<tr>
-				<th colspan="3">Calculated Total Weight</th>
-				<td>{totalWeight}</td>
-			</tr>
-		</tfoot> -->
-		</table>
+<div class="flex flex-col justify-center sm:px-6 lg:px-8 py-16">
+	{#key refreshKey}
+		<StonksTable {data} />
+	{/key}
+	<div class="flex justify-center py-8">
+		{#await data.streamed.spy}
+			<div class="flex flex-col items-center">
+				<h2 class="text-4xl">{loadingText}</h2>
+				<ProgressRadial class="py-4" value={undefined} track="stroke-primary-600" />
+			</div>
+		{:then spy}
+			{#if spy.price - initialSPY >= 0}
+				<h2 class="text-4xl">
+					$SPY is up <span class="text-green-500"
+						>{parseFloat((((spy.price - initialSPY) / initialSPY) * 100).toFixed(2))}%</span
+					> YTD
+				</h2>
+			{:else}
+				<h2 class="text-4xl">
+					$SPY is down <span class="text-red-500"
+						>{parseFloat((((spy.price - initialSPY) / initialSPY) * 100).toFixed(2))}%</span
+					> YTD
+				</h2>
+			{/if}
+		{:catch}
+			<h2 class="text-3xl">An error occured.... 😭</h2>
+		{/await}
 	</div>
 </div>

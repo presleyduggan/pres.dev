@@ -1,7 +1,5 @@
-import { STOCK_API } from '$env/static/private';
 import { fetchStock } from '$lib/utils.js';
-import { doStockCalcs } from '$lib/utils.js';
-import { fetchOldStock } from '$lib/utils.js';
+import { fetchSpy } from '$lib/utils.js';
 
 interface StockUser {
 	id: string;
@@ -26,22 +24,20 @@ export async function load({ locals }) {
 	// Calculate the percent change for each user
 	users.forEach((user, index) => {
 		const value = stockData[index];
-		//console.log(value);
 		const initialPrice = user.initial_price;
 		const stockPrice = value.price;
 
-		//if (initialPrice !== 0) {
 		user.percent_change = ((stockPrice - initialPrice) / initialPrice) * 100;
 		// Round the percent change to two decimal points
 		user.percent_change = parseFloat(user.percent_change.toFixed(2));
 		user.price = parseFloat(value.price.toFixed(2));
-		//} else {
-		//  user.percent_change = 0; // or set to some other appropriate value
-		// }
 	});
 
 	return {
-		users: users
+		users: users,
+		streamed: {
+			spy: fetchSpy()
+		}
 	};
 }
 

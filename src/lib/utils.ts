@@ -36,6 +36,17 @@ export const fetchStock = async (ticker: string) => {
 	}).then((res) => res.json());
 };
 
+export const fetchSpy = async () => {
+	//console.log('starting ' + ticker + ' ' + Date.now());
+	return await fetch(STOCK_API + '_spy', {
+		method: 'GET',
+		headers: {
+			'Content-Type': 'application/json',
+			Accept: 'application/json'
+		}
+	}).then((res) => res.json());
+};
+
 export const fetchOldStock = async () => {
 	return await fetch('https://presleyduggan.pythonanywhere.com/api/stonks', {
 		method: 'POST',
