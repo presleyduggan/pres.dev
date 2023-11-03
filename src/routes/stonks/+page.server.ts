@@ -1,5 +1,6 @@
 import { fetchStock } from '$lib/utils.js';
 import { fetchSpy } from '$lib/utils.js';
+import { sortPercent } from '$lib/utils.js';
 
 interface StockUser {
 	id: string;
@@ -34,7 +35,7 @@ export async function load({ locals }) {
 	});
 
 	return {
-		users: users,
+		users: users.sort(sortPercent),
 		streamed: {
 			spy: fetchSpy()
 		}

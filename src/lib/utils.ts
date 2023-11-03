@@ -80,3 +80,18 @@ export const doStockCalcs = (users: StockUser[]) => {
 		}
 	});
 };
+
+export function sortStonkers(users: StockUser[]) {
+	users.sort(sortPercent);
+}
+
+export function sortPercent(a: StockUser, b: StockUser): number {
+	if (a.percent_change < b.percent_change) {
+		return 1 * 1;
+	}
+	if (a.percent_change > b.percent_change) {
+		return -1 * 1;
+	} else {
+		return 0;
+	}
+}

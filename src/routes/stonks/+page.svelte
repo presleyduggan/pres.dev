@@ -4,22 +4,23 @@
 	import { onMount } from 'svelte';
 	import { invalidateAll } from '$app/navigation';
 	export let data;
+	console.log(data);
 
 	let refreshKey = 0;
 	const initialSPY = 382.43;
 	let loadingText = 'Loading...';
 
-	onMount(() => {
+	/* onMount(() => {
 		const interval = setInterval(() => {
 			loadingText = 'Refreshing Stonks Data...';
-			refreshKey++;
 			invalidateAll();
-		}, 5000);
+			refreshKey++;
+		}, 60000);
 
 		return () => {
 			clearInterval(interval);
 		};
-	});
+	}); */
 </script>
 
 <br />

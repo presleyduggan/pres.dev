@@ -1,11 +1,25 @@
 <script lang="ts">
 	import type { StockData } from '$lib/types/Types';
 	export let data: StockData;
+	import { onMount } from 'svelte';
 
 	const normalArrow = '↕';
 	const upArrow = '⬆';
 	const downArrow = '⬇';
 	const TABLE_WIDTH = 5;
+
+	let previousSort: number;
+	let sortMod: number;
+	let date: Date;
+
+	onMount(() => {
+		date = new Date();
+		console.log('mounting');
+		sortMod = 1;
+		previousSort = 5;
+		fixArrow(5);
+		//sortStonkers(5);
+	});
 
 	let tableColumns = ['Name ↕', 'Stock ↕', 'Initial ↕', 'Current ↕', '% Change ↕'];
 	let startTableColumns: string[] = [];
@@ -69,10 +83,6 @@
 		//console.log(data.users);
 		data.users = data.users;
 	}
-
-	let sortMod = 1;
-	let previousSort = -100;
-	sortStonkers(5);
 
 	function sortNames(a: StockUser, b: StockUser): number {
 		if (a.name.toUpperCase() < b.name.toUpperCase()) {
@@ -202,3 +212,6 @@
         </tr>
     </tfoot> -->
 </table>
+<p class="flex justify-center py-1 text-[8px] md:text-[14px]">
+	Last updated at {date}
+</p>
