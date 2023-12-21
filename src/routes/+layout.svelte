@@ -21,16 +21,30 @@
 				<strong class="text-3xl"><a href="/">pres.dev</a></strong>
 			</svelte:fragment>
 			<svelte:fragment slot="trail">
-				<a class="btn variant-ghost-surface hover:variant-soft-primary" href="/login"> Login </a>
+				<div>
+					<button
+						use:popup={{ event: 'click', target: 'navigation-menu' }}
+						type="button"
+						class="btn btn-sm variant-ghost">Pages</button
+					>
+					<div class="card p-4" data-popup="navigation-menu">
+						<a class="btn btn-sm" href="/">Home</a>
+						<a class="btn btn-sm" href="/stonks">Stonks</a>
+						<a class="btn btn-sm" href="/playground">Playground</a>
+					</div>
+				</div>
+
 				<div>
 					<button
 						use:popup={{ event: 'click', target: 'settings' }}
 						type="button"
-						class="btn variant-soft-primary">Test</button
+						class="btn btn-sm variant-soft-primary">Settings</button
 					>
 					<div class="card p-4" data-popup="settings">
-						<p>Settings</p>
-						<LightSwitch />
+						<p>Dark/Light Mode</p>
+						<div class="flex justify-center">
+							<LightSwitch />
+						</div>
 					</div>
 				</div>
 			</svelte:fragment>
