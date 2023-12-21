@@ -2,6 +2,7 @@ import PocketBase, { RecordService } from 'pocketbase';
 import { serializeNonPOJOS } from '$lib/utils';
 import { DB_URL } from '$env/static/private';
 import { IS_PRODUCTION } from '$env/static/private';
+import { redirect } from '@sveltejs/kit';
 
 interface StockUser {
 	id: string;
@@ -17,6 +18,10 @@ interface TypedPocketBase extends PocketBase {
 }
 
 export const handle = async ({ event, resolve }) => {
+	if (event.url.pathname.match(/[A-Z]/)) {
+		throw redirect(307, event.url.pathname.toLowerCase());
+	}
+
 	event.locals.pb = new PocketBase(DB_URL) as TypedPocketBase;
 	event.locals.pb.authStore.loadFromCookie(event.request.headers.get('cookie') || '');
 
