@@ -18,11 +18,11 @@
 	/* 	import { onMount } from 'svelte'; */
 	import { invalidateAll } from '$app/navigation';
 	export let data;
-	console.log(data);
+	//console.log(data);
 
 	let refreshKey = 0;
 	const initialSPY = 382.43;
-	let loadingText = 'Loading...';
+	let loadingText = 'Loading Spy Data...';
 
 	/* onMount(() => {
 		const interval = setInterval(() => {
@@ -45,15 +45,23 @@
 </h1>
 <!-- Responsive Container (recommended) -->
 <div class="flex flex-col justify-center sm:px-6 lg:px-8 py-16">
-	{#key refreshKey}
-		<StonksTable {data} />
-	{/key}
+	{#await data.streamed.users}
+		<div class="flex flex-col items-center">
+			<h2 class="text-4xl">Loading Stonks Data...</h2>
+			<ProgressRadial class="py-4" value={undefined} track="stroke-primary-600" />
+		</div>
+	{:then users}
+		<StonksTable {users} />
+	{:catch}
+		<h2 class="text-3xl text-center">Can't load user statistics.. tell Presley 😭</h2>
+	{/await}
 	<div class="flex justify-center py-12">
 		{#await data.streamed.spy}
-			<div class="flex flex-col items-center">
+			<div />
+			<!-- <div class="flex flex-col items-center">
 				<h2 class="text-4xl">{loadingText}</h2>
 				<ProgressRadial class="py-4" value={undefined} track="stroke-primary-600" />
-			</div>
+			</div> -->
 		{:then spy}
 			{#if spy.price - initialSPY >= 0}
 				<h2 class="text-2xl lg:text-4xl">
@@ -69,35 +77,42 @@
 				</h2>
 			{/if}
 		{:catch}
-			<h2 class="text-3xl">An error occured.... 😭</h2>
+			<h2 class="text-3xl text-center">An error occured loading $SPY.... 😭</h2>
 		{/await}
 	</div>
-	<div class="flex justify-center py-12">
-		<h2 class="text-2xl lg:text-4xl">Your current Stonks KING is: {data.users[0].name}</h2>
-	</div>
-	<div class="flex justify-center py-2">
-		{#if data.users[0].name === 'Dhiraj'}
-			<img src={Dhiraj} alt="" height="400" width="400" />
-		{:else if data.users[0].name === 'David'}
-			<img src={David} alt="" height="400" width="400" />
-		{:else if data.users[0].name === 'Jack'}
-			<img src={Jack} alt="" height="400" width="400" />
-		{:else if data.users[0].name === 'Josh'}
-			<img src={Josh} alt="" height="400" width="400" />
-		{:else if data.users[0].name === 'Logan'}
-			<img src={Logan} alt="" height="400" width="400" />
-		{:else if data.users[0].name === 'Mark'}
-			<img src={Mark} alt="" height="400" width="400" />
-		{:else if data.users[0].name === 'Mitch'}
-			<img src={Mitch} alt="" height="400" width="400" />
-		{:else if data.users[0].name === 'Poles'}
-			<img src={Poles} alt="" height="400" width="400" />
-		{:else if data.users[0].name === 'Presley'}
-			<img src={Presley} alt="" height="400" width="400" />
-		{:else if data.users[0].name === 'Rex'}
-			<img src={Rex} alt="" height="400" width="400" />
-		{:else if data.users[0].name === 'Sean'}
-			<img src={Sean} alt="" height="400" width="400" />
-		{/if}
-	</div>
+	{#await data.streamed.users}
+		<div />
+		<!-- <h2 class="text-2xl lg:text-4xl text-center">Your current Stonks KING is: Loading...</h2> -->
+	{:then users}
+		<div class="flex justify-center py-12">
+			<h2 class="text-2xl lg:text-4xl">Your current Stonks KING is: {users[0].name}</h2>
+		</div>
+		<div class="flex justify-center py-2">
+			{#if users[0].name === 'Dhiraj'}
+				<img src={Dhiraj} alt="" height="400" width="400" />
+			{:else if users[0].name === 'David'}
+				<img src={David} alt="" height="400" width="400" />
+			{:else if users[0].name === 'Jack'}
+				<img src={Jack} alt="" height="400" width="400" />
+			{:else if users[0].name === 'Josh'}
+				<img src={Josh} alt="" height="400" width="400" />
+			{:else if users[0].name === 'Logan'}
+				<img src={Logan} alt="" height="400" width="400" />
+			{:else if users[0].name === 'Mark'}
+				<img src={Mark} alt="" height="400" width="400" />
+			{:else if users[0].name === 'Mitch'}
+				<img src={Mitch} alt="" height="400" width="400" />
+			{:else if users[0].name === 'Poles'}
+				<img src={Poles} alt="" height="400" width="400" />
+			{:else if users[0].name === 'Presley'}
+				<img src={Presley} alt="" height="400" width="400" />
+			{:else if users[0].name === 'Rex'}
+				<img src={Rex} alt="" height="400" width="400" />
+			{:else if users[0].name === 'Sean'}
+				<img src={Sean} alt="" height="400" width="400" />
+			{/if}
+		</div>
+	{:catch}
+		<h2 class="text-3xl text-center">We'll never know who the king is 😭</h2>
+	{/await}
 </div>

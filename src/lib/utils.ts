@@ -1,15 +1,8 @@
 import { STOCK_API } from '$env/static/private';
+import type { StockUser } from './types/Types';
 
 interface Json {
 	[x: string]: string | number | boolean | Date | Json | JsonArray;
-}
-
-interface StockUser {
-	id: string;
-	name: string;
-	stock: string;
-	initial_price: number;
-	percent_change: number;
 }
 
 interface StockPrice {
@@ -68,10 +61,13 @@ export const doStockCalcs = (users: StockUser[]) => {
 					user.percent_change = ((value.price - user.initial_price) / user.initial_price) * 100;
 					// Round the percent change to two decimal points
 					user.percent_change = parseFloat(user.percent_change.toFixed(2));
+					user.price = parseFloat(value.price.toFixed(2));
 
 					//console.log(user.percent_change);
 				})
 			);
+
+			users.sort(sortPercent);
 
 			// Resolve the promise with the completed 'users' object after all calculations are done
 			resolve(users);
@@ -80,6 +76,24 @@ export const doStockCalcs = (users: StockUser[]) => {
 			reject(error);
 		}
 	});
+};
+
+export const doStockCalcsStream = async (users: StockUser[]) => {
+	await Promise.all(
+		users.map(async (user) => {
+			const value = await fetchStock(user.stock);
+			user.percent_change = ((value.price - user.initial_price) / user.initial_price) * 100;
+			user.percent_change = parseFloat(user.percent_change.toFixed(2));
+			user.price = parseFloat(value.price.toFixed(2));
+		})
+	);
+
+	users.sort(sortPercent);
+
+	//console.log(users);
+
+	// Return the completed 'users' object after all calculations are done
+	return users;
 };
 
 export function sortStonkers(users: StockUser[]) {

@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { StockData } from '$lib/types/Types';
-	export let data: StockData;
+	import type { StockUser } from '$lib/types/Types';
+	export let users: StockUser[];
 	import { onMount } from 'svelte';
 
 	const normalArrow = '↕';
@@ -29,17 +29,17 @@
 		startTableColumns.push(tableColumns[i]);
 	}
 
-	interface StockUser {
+	/* interface StockUser {
 		id: string;
 		name: string;
 		stock: string;
 		initial_price: number;
 		price: number;
 		percent_change: number;
-	}
+	} */
 
-	/* if (!data.users[0].stock.includes('$')) {
-		data.users.forEach((user: StockUser) => {
+	/* if (!users.users[0].stock.includes('$')) {
+		users.users.forEach((user: StockUser) => {
 			user.stock = '$' + user.stock;
 		});
 	} */
@@ -55,33 +55,33 @@
 
 		switch (sortNum) {
 			case 1:
-				data.users.sort(sortNames);
+				users.sort(sortNames);
 				previousSort = 1;
 				break;
 
 			case 2:
-				data.users.sort(sortStocks);
+				users.sort(sortStocks);
 				previousSort = 2;
 				break;
 
 			case 3:
-				data.users.sort(sortInitial);
+				users.sort(sortInitial);
 				previousSort = 3;
 				break;
 
 			case 4:
-				data.users.sort(sortCurrent);
+				users.sort(sortCurrent);
 				previousSort = 4;
 				break;
 
 			case 5:
-				data.users.sort(sortPercent);
+				users.sort(sortPercent);
 				previousSort = 5;
 				break;
 		}
 
-		//console.log(data.users);
-		data.users = data.users;
+		//console.log(users.users);
+		users = users;
 	}
 
 	function sortNames(a: StockUser, b: StockUser): number {
@@ -191,7 +191,7 @@
 		</tr>
 	</thead>
 	<tbody>
-		{#each data.users as row, i}
+		{#each users as row, i}
 			<tr>
 				<td>{row.name}</td>
 				<td>{'$' + row.stock}</td>

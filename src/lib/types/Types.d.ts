@@ -7,6 +7,11 @@ export interface StockUser {
 	percent_change: number;
 }
 
+export interface Spy {
+	price: number;
+	ticker: string;
+}
+
 export interface StockData {
 	users: StockUser[];
 }

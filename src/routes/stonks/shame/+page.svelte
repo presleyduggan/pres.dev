@@ -12,7 +12,7 @@
 		<h3>Start Price: $11.52</h3>
 		<h3>End Price: $6.04</h3>
 		<h3 class="text-green-500 text-lg">-47.57%</h3>
-		<h3 class="text-red-500 text-lg">
+		<h3 class="text-lg">
 			$SPY was up <span class="text-green-500">28.79%</span> that year
 		</h3>
 	</div>
@@ -36,7 +36,7 @@
 		<h3>Start Price: $228.2</h3>
 		<h3>End Price: $40.70</h3>
 		<h3 class="text-green-500 text-lg">-82.16%</h3>
-		<h3 class="text-red-500 text-lg">
+		<h3 class="text-lg">
 			$SPY was down <span class="text-red-500">-19.48%</span> that year
 		</h3>
 	</div>
