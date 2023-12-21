@@ -1,4 +1,4 @@
-import PocketBase, {RecordService} from 'pocketbase';
+import PocketBase, { RecordService } from 'pocketbase';
 import { serializeNonPOJOS } from '$lib/utils';
 import { DB_URL } from '$env/static/private';
 import { IS_PRODUCTION } from '$env/static/private';
@@ -12,7 +12,7 @@ interface StockUser {
 }
 
 interface TypedPocketBase extends PocketBase {
-	collection(idOrName: string): RecordService
+	collection(idOrName: string): RecordService;
 	collection(idOrName: 'stocks'): RecordService<StockUser>;
 }
 
@@ -22,7 +22,8 @@ export const handle = async ({ event, resolve }) => {
 
 	if (event.locals.pb.authStore.isValid) {
 		event.locals.user = serializeNonPOJOS(event.locals.pb.authStore.model);
-        console.log("valid");
+		console.log(event.locals.user);
+		console.log('valid');
 	} else {
 		event.locals.user = undefined;
 	}
@@ -32,10 +33,13 @@ export const handle = async ({ event, resolve }) => {
 		//console.log(serializeNonPOJOS(event.locals.user));
 	}
 
-	console.time('Handle')
+	console.time('Handle');
 	const response = await resolve(event);
 
-	response.headers.set('set-cookie', event.locals.pb.authStore.exportToCookie({ secure: IS_PRODUCTION === 'true' })); // TODO: change to true when deploying
-	console.timeEnd('Handle')
+	response.headers.set(
+		'set-cookie',
+		event.locals.pb.authStore.exportToCookie({ secure: IS_PRODUCTION === 'true' })
+	); // TODO: change to true when deploying
+	console.timeEnd('Handle');
 	return response;
 };
