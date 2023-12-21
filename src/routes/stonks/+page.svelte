@@ -15,16 +15,16 @@
 
 	import { ProgressRadial } from '@skeletonlabs/skeleton';
 
-	/* 	import { onMount } from 'svelte'; */
+	import { onMount } from 'svelte';
 	import { invalidateAll } from '$app/navigation';
 	export let data;
 	//console.log(data);
 
 	let refreshKey = 0;
 	const initialSPY = 382.43;
-	let loadingText = 'Loading Spy Data...';
+	let loadingText = 'Loading Stonks Data...';
 
-	/* onMount(() => {
+	onMount(() => {
 		const interval = setInterval(() => {
 			loadingText = 'Refreshing Stonks Data...';
 			invalidateAll();
@@ -34,7 +34,7 @@
 		return () => {
 			clearInterval(interval);
 		};
-	}); */
+	});
 </script>
 
 <br />
@@ -47,7 +47,7 @@
 <div class="flex flex-col justify-center sm:px-6 lg:px-8 py-16">
 	{#await data.streamed.users}
 		<div class="flex flex-col items-center">
-			<h2 class="text-4xl">Loading Stonks Data...</h2>
+			<h2 class="text-4xl">{loadingText}</h2>
 			<ProgressRadial class="py-4" value={undefined} track="stroke-primary-600" />
 		</div>
 	{:then users}
