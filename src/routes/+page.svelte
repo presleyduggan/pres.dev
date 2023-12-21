@@ -13,7 +13,7 @@
 	</div>
 	<div>
 		<h2 class="flex justify-center text-lg text-center py-8">
-			I am currently a Fullstack Developer working at Fedex, and finishing up my thesis to complete
+			I am currently a Fullstack Developer working at FedEx, and finishing up my thesis to complete
 			my Master's degree at the University of Nevada, Las Vegas. Here on this site you'll find some
 			of my projects I do on my free time.
 		</h2>
