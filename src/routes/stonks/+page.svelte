@@ -24,7 +24,7 @@
 	const initialSPY = 382.43;
 	let loadingText = 'Loading Stonks Data...';
 
-	onMount(() => {
+	/* onMount(() => {
 		const interval = setInterval(() => {
 			loadingText = 'Refreshing Stonks Data...';
 			invalidateAll();
@@ -34,7 +34,7 @@
 		return () => {
 			clearInterval(interval);
 		};
-	});
+	}); */
 </script>
 
 <br />
