@@ -41,7 +41,7 @@
 <br />
 <title>Stonks 2024</title>
 <h1 class="flex justify-center text-3xl md:text-4xl lg:text-7xl font-bold">
-	Stonks Competition 2023
+	Stonks Competition 2024
 </h1>
 <!-- Responsive Container (recommended) -->
 <div class="flex flex-col justify-center sm:px-6 lg:px-8 py-16">
