@@ -39,7 +39,7 @@
 
 <br />
 <br />
-<title>Stonks 2023</title>
+<title>Stonks 2024</title>
 <h1 class="flex justify-center text-3xl md:text-4xl lg:text-7xl font-bold">
 	Stonks Competition 2023
 </h1>
