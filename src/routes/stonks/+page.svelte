@@ -21,7 +21,7 @@
 	//console.log(data);
 
 	let refreshKey = 0;
-	const initialSPY = 475.31;
+	const initialSPY = 472.16;
 	let loadingText = 'Loading Stonks Data...';
 
 	/* onMount(() => {
