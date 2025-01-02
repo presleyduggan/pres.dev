@@ -4,7 +4,7 @@
 
 <AppBar>
 	<svelte:fragment slot="lead">
-		<a class="btn btn-sm" href="/stonks">Stonks 2024</a>
+		<a class="btn btn-sm" href="/stonks">Stonks 2025</a>
 		<a class="btn btn-sm" href="/stonks/fame">Hall of Fame</a>
 		<a class="btn btn-sm" href="/stonks/shame">Hall of Shame</a>
 		<a class="btn btn-sm" href="/stonks/info">Info</a>
