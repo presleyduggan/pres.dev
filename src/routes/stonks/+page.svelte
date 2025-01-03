@@ -94,7 +94,7 @@
 				<img src={David} alt="" height="400" width="400" />
 			{:else if users[0].name === 'Jack'}
 				<img src={Jack} alt="" height="400" width="400" />
-			{:else if users[0].name === 'Josh'}
+			{:else if users[0].name === 'Jawsh'}
 				<img src={Josh} alt="" height="400" width="400" />
 			{:else if users[0].name === 'Logan'}
 				<img src={Logan} alt="" height="400" width="400" />
